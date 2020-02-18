@@ -26,16 +26,19 @@ def bubble_sort( arr ):
     swap_counter = 0
 
     while swap_occured:
+        swap_occured = False
         for cur_index in range(0, len(arr) - 1):
             if arr[cur_index] > arr[cur_index + 1]:
                 arr[cur_index], arr[cur_index + 1] = arr[cur_index + 1], arr[cur_index] 
-                swap_counter += 1
+                # swap_counter += 1
+                swap_occured = True
+                
 
-        if swap_counter == 0:
-            swap_occured = False
-        else:
-            swap_occured = True
-            swap_counter = 0
+        # if swap_counter == 0:
+        #     swap_occured = False
+        # else:
+        #     swap_occured = True
+        #     swap_counter = 0
 
     return arr
 
@@ -84,4 +87,4 @@ def count_sort( arr, maximum=-1 ):
 
     return new_array
 
-print(count_sort([1,5,3,6]))
+print(count_sort([3, 1, 10, 8, 9, 11, 3, 5, 2, 1, 3]))
