@@ -30,9 +30,27 @@ print(selection_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
-    # create the loop structure that will 
+    # create the loop structure that will repeat if a swap boolean reads true 
 
+    # if the right side of the current index is smaller swap the two values.
+    #   set boolean to true
+    # if the current index is smaller than the right side don't do anything.
+    swap_bool = True
+    swap_counter = 0
+
+    while swap_bool:
+        for cur_index in range(len(arr)-1):
+            if arr[cur_index] > arr[cur_index +1]:
+                arr[cur_index], arr[cur_index+1] = arr[cur_index+1], arr[cur_index]
+                swap_counter += 1 
+
+        if swap_counter == 0:
+            swap_bool = False
+        else: 
+            swap_counter = 0
     return arr
+
+print(bubble_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
 
 
 # STRETCH: implement the Count Sort function below
