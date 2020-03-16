@@ -9,20 +9,9 @@ def selection_sort( arr ):
         for j in range(cur_index, len(arr)):
             if arr[smallest_index] > arr[j]:
                 smallest_index = j
-            print('smallest in inner loop', arr[smallest_index])
-
-        print('smallest after first loop', arr[smallest_index])
-        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
         
-             
-
-
-
+        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
         # TO-DO: swap
-
-
-
-
     return arr
 
 print(selection_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
@@ -52,6 +41,27 @@ def bubble_sort( arr ):
 
 print(bubble_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
 
+def insertion_sort(arr):
+    # start with the first value in the array 
+
+    # start a loop discounting of course the first index position
+
+    #   save the current index element in a variable 
+    #   start a loop that will start at the last index position 
+    #       check if the current index is less than the inner current index
+    #           insert the value in the inner current index 
+    #       else don't do anything
+
+    for i_index in range(1, len(arr)):
+        cur_index = i_index 
+
+        for j_index in range(0, cur_index):
+            print(f'Is {arr[cur_index]} less than {arr[j_index]}: {arr[j_index] > arr[cur_index]}')
+            if arr[j_index] > arr[cur_index]:
+                arr.insert(j_index, arr.pop(cur_index))
+    return arr
+
+print(insertion_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):

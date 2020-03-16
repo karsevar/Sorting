@@ -43,4 +43,15 @@ def binary_search_recursive(arr, target, low, high):
 
   if len(arr) == 0:
     return -1 # array empty
+
+  if high < low:
+    return -1 
+  elif arr[middle] == target:
+    return middle
+  elif arr[middle] > target:
+    return binary_search_recursive(arr, target, low, middle-1)
+  elif arr[middle] < target:
+    return binary_search_recursive(arr, target, middle + 1, high)
   # TO-DO: add missing if/else statements, recursive calls
+
+print(binary_search_recursive([-9, -8, -6, -4, -3, -2, 0, 1, 2, 3, 5, 7, 8, 9], -8, 0, 13))
