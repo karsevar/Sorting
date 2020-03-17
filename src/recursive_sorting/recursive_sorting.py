@@ -37,7 +37,44 @@ def merge_sort( arr ):
 
     return arr
 
-print(merge_sort([2,3,1,6,1,2]))
+# print(merge_sort([2,3,1,6,1,2]))
+
+# quick sort:
+def quick_sort(arr):
+    # find the pivot of the array (usually the first element) 
+
+    # if array length is 1 return the element as an array (base case)
+
+    # split the array according to the elements being greater than or less than
+    # the pivot 
+
+    # recursively call the function between the left side and right side
+
+    if len(arr) > 1:
+        print('arr', arr)
+        pivot = arr[0]
+        print('pivot', pivot)
+        LHS = []
+        RHS = []
+
+        # stupidly forgot to not include the pivot in the LHS and RHS calculations 
+        # if you include the pivot value the algorithm will create an infinite loop.
+        for element in arr[1:]:
+            if pivot > element:
+                LHS.append(element) 
+            else:
+                RHS.append(element) 
+
+        LHS = quick_sort(LHS) 
+        RHS = quick_sort(RHS)
+
+        arr = LHS + [pivot] + RHS
+
+    return arr
+
+print(quick_sort([3,1,6,3,2,3]))
+
+
 
 
 # STRETCH: implement an in-place merge sort algorithm
