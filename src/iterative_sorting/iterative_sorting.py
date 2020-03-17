@@ -56,7 +56,7 @@ def insertion_sort(arr):
         cur_index = i_index 
 
         for j_index in range(0, cur_index):
-            print(f'Is {arr[cur_index]} less than {arr[j_index]}: {arr[j_index] > arr[cur_index]}')
+            # print(f'Is {arr[cur_index]} less than {arr[j_index]}: {arr[j_index] > arr[cur_index]}')
             if arr[j_index] > arr[cur_index]:
                 arr.insert(j_index, arr.pop(cur_index))
     return arr
@@ -65,5 +65,30 @@ print(insertion_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
+    # create a count array at is the total size of the largest number plus one to 
+    # make room for the zero
 
-    return arr
+    # loop through the array counting each occurance of each value in the count array.
+
+    # loop through the count array and place the index positions in a new array with the 
+    # proper amount of reoccurence.
+    if len(arr) == 0:
+        return []
+
+    maximum = max(arr)
+    
+    count_array = [0] * (maximum + 1)
+    new_array = []
+    
+    for count in arr:
+        if count < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        count_array[count] += 1
+
+    for index_count in range(len(count_array)):
+        for _ in range(count_array[index_count]):
+            new_array.append(index_count)
+
+    return new_array
+
+print(count_sort([2,3,1,7]))
